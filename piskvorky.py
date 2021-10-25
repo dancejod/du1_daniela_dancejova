@@ -1,7 +1,7 @@
 from turtle import *
 from math import sqrt
 
-speed(1)
+speed(0)
 dlzka = 20
 pocet_stlpcov = int(input("Zadaj pocet stlpcov: "))
 pocet_riadkov = int(input("Zadaj pocet riadkov: "))
@@ -27,5 +27,17 @@ for k in range(pocet_riadkov):
     setpos(0,2*posun*(k+1))                     ## Posun y suradnice o dvojnasobok taznice krat poradie iteracie
     pendown()
 
+penup()
+#setpos(dlzka/2,posun/2)
+setpos(dlzka/2, posun)
+pendown()
+left(60)
+forward(10)
+backward(20)
+forward(10)
+left(60)
+forward(10)
+backward(20)
+#circle(10)
 
 exitonclick()
