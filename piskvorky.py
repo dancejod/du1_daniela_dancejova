@@ -3,14 +3,14 @@ from math import sqrt
 
 speed(1)
 dlzka = 20
-pocet_riadkov = 4
-pocet_stlpcov = 4
-
-### Vykresli zadany pocet stlpcov
-for k in range(pocet_stlpcov):
+pocet_stlpcov = int(input("Zadaj pocet stlpcov: "))
+pocet_riadkov = int(input("Zadaj pocet riadkov: "))
 
 ### Vykresli zadany pocet riadkov
-    for j in range(pocet_riadkov):
+for k in range(pocet_riadkov):
+
+### Vykresli zadany pocet stlpcov
+    for j in range(pocet_stlpcov):
     
         ### Vykresli sestuholnik
         for i in range(6):
