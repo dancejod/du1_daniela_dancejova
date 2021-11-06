@@ -3,8 +3,21 @@ from math import sqrt
 
 speed(0)
 dlzka_strany = 20
-pocet_stlpcov = int(input("Zadaj pocet stlpcov herneho pola: "))
-pocet_riadkov = int(input("Zadaj pocet riadkov herneho pola: "))
+pocet_je_ok = False
+
+while not pocet_je_ok:                                          ## Kontrolny cyklus pre zadanie nezaporneho poctu riadkov a stlpcov
+    pocet_stlpcov = int(input("Zadaj pocet stlpcov herneho pola: "))
+    if pocet_stlpcov <= 0:
+        print("Zadal si nespravny pocet stlpcov")
+        continue
+    
+    pocet_riadkov = int(input("Zadaj pocet riadkov herneho pola: "))
+    if pocet_riadkov <= 0:
+        print("Zadal si nespravny pocet riadkov")
+        continue
+    
+    pocet_je_ok = True
+
 vyska = sqrt((dlzka_strany**2)-((dlzka_strany/2)**2))           ## vyska 1 rovnostranneho trojuholnika v sestuholniku
 
 ### Vykresli zadany pocet riadkov
@@ -65,8 +78,8 @@ for tah in range(max_pocet_tahov):
     else:
         hrac = "Hrac 1 (cerveny)"
 
-    kontrola = 0
-    while kontrola == 0:                                    ### Kontrolny cyklus na vstupy, ak nie su splnene podmienky, hra nepokracuje
+    vstup_je_ok = False
+    while not vstup_je_ok:                                    ### Kontrolny cyklus na vstupy, ak nie su splnene podmienky, hra nepokracuje
     
         riadok = int(input(hrac + ", zadaj cislo riadku pre tvoj tah: "))
         if riadok <= 0 or riadok > pocet_riadkov:
@@ -78,7 +91,7 @@ for tah in range(max_pocet_tahov):
             print(hrac + ", zadal si neplatne cislo stlpca")
             continue
             
-        kontrola = 1
+        vstup_je_ok = True
             
     x_sur = ((stlpec-1)*((3/2)*dlzka_strany))
     y_sur = ((stlpec-1)*vyska+(riadok-1)*2*vyska)
