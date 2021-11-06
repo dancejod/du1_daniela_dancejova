@@ -1,5 +1,5 @@
 from turtle import *
-from math import *
+from math import sqrt, sin
 
 speed(0)
 dlzka = 20
@@ -23,8 +23,8 @@ for k in range(pocet_riadkov):
         right(60)
     
     penup()
-    taznica = sqrt((dlzka**2)-((dlzka/2)**2))     ## Taznica rovnostranneho trojuholnika
-    setpos(0,2*taznica*(k+1))                     ## taznica y suradnice o dvojnasobok taznice krat poradie iteracie
+    vyska = sqrt((dlzka**2)-((dlzka/2)**2))     ##   vyska rovnostranneho trojuholnika, DAJ MIMO CYKLU
+    setpos(0,2*vyska*(k+1))                     ##   vyska y suradnice o dvojnasobok taznice krat poradie iteracie
     pendown()
 
 penup()
@@ -34,22 +34,24 @@ setpos(0,0)
 
 pensize(5)
 
-riadok = 2
-stlpec = 3
-segment = (sqrt(dlzka**2-taznica**2))
-x_sur = (dlzka+segment)*(stlpec-1)
-y_sur = sin(taznica/dlzka)
+hra = -1
 
-setx(x_sur)
-sety((y_sur/x_sur)*stlpec + (2*taznica*riadok))            ## taznicaie korytnacku do riadku
-#setpos((dlzka*b-dlzka,)
+riadok = int(input("Zadaj cislo riadku pre tvoj tah: "))
+stlpec = int(input("Zadaj cislo stlpca pre tvoj tah: "))
+ls = []
+ls.append((riadok,stlpec))
+print(ls)
+
+x_sur = ((stlpec-1)*((3/2)*dlzka))
+y_sur = ((stlpec-1)*vyska+(riadok-1)*2*vyska)
+
+setx(x_sur+dlzka/2)
+sety(y_sur+vyska)                           ## fkcia, ktora zasadi korytnacku do stredu sestuholnika
 
 ### Krizik
 penup()
-#setpos(dlzka/2, taznica)
 pencolor("red")
 left(60)
-forward(10)
 pendown()
 forward(10)
 backward(20)
@@ -60,7 +62,6 @@ backward(20)
 
 ### Kruh
 penup()
-setpos(dlzka/2,taznica/2)
 pencolor("blue")
 pendown()
 circle(10)
