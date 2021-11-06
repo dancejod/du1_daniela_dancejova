@@ -61,9 +61,9 @@ max_pocet_tahov = pocet_stlpcov * pocet_riadkov
 for tah in range(max_pocet_tahov):
     
     if tah%2 == 1:
-        hrac = "Hrac 2 (cerveny)"
+        hrac = "Hrac 2 (modry)"
     else:
-        hrac = "Hrac 1 (modry)"
+        hrac = "Hrac 1 (cerveny)"
 
     kontrola = 0
     while kontrola == 0:                                    ### Kontrolny cyklus na vstupy, ak nie su splnene podmienky, hra nepokracuje
@@ -87,9 +87,9 @@ for tah in range(max_pocet_tahov):
     sety(y_sur+vyska)                           ## korekcie zasadia korytnacku do stredu sestuholnika
 
     if tah%2 == 1:
-        krizik()
-    else:
         kruh()
+    else:
+        krizik()
         
 print("Koniec hry")
 exitonclick()
