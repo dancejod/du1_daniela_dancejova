@@ -1,8 +1,33 @@
-from turtle import *
+from turtle import pencolor, left, right, forward, backward, penup, pendown, dot, setpos, pensize, exitonclick, speed, setx, sety
 from math import sqrt
 
 speed(0)
-dlzka_strany = 20
+dlzka_strany = 40
+
+### Vykresli krizik
+def krizik():
+    pencolor("red")
+    pensize(0.25*dlzka_strany)
+    left(60)
+    pendown()
+    forward(dlzka_strany/2)
+    backward(dlzka_strany)
+    forward(dlzka_strany/2)
+    left(60)
+    forward(dlzka_strany/2)
+    backward(dlzka_strany)
+    right(120)
+    penup()
+
+### Vykresli kruh
+def kruh():
+    pencolor("blue")
+    pendown()
+    dot(1.25*dlzka_strany)
+    pencolor("white")
+    dot(0.9*dlzka_strany)
+    penup()
+
 pocet_je_ok = False
 
 while not pocet_je_ok:                                          ## Kontrolny cyklus pre zadanie nezaporneho poctu riadkov a stlpcov
@@ -42,31 +67,6 @@ for k in range(pocet_riadkov):
 
 penup()
 setpos(0,0)
-
-### Krizik
-def krizik():
-    pencolor("red")
-    left(60)
-    pendown()
-    forward(10)
-    backward(20)
-    forward(10)
-    left(60)
-    forward(10)
-    backward(20)
-    right(120)
-    penup()
-
-### Kruh
-def kruh():
-    pencolor("blue")
-    pendown()
-    dot(25)
-    pencolor("white")
-    dot(18)
-    penup()
-
-pensize(5)
 
 max_pocet_tahov = pocet_stlpcov * pocet_riadkov
 
